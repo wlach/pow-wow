@@ -1,8 +1,17 @@
 #include "native_events.h"
-// We need to talk about this interface.  This isn't going to work
+
 #ifdef __linux
-guint click(gint x, gint y, guint button) {
-    return _click(x, y, button);
+// Define C++ method implementations here
+guint _click(guint button);
+guint _moveMouse(gint x, gint y);
+guint _keypress(char val, modifiers *mods);
+
+guint moveMouse(gint x, gint y) {
+    return _moveMouse(x, y);
+}
+
+guint click(guint button) {
+    return _click(button);
 }
 
 guint keypress(char val, modifiers mods) {
