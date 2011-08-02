@@ -1,0 +1,4 @@
+content native-events chrome/native-events/content/
+component {cee89d1e-f891-438a-9405-981117d55c90} chromescript.js
+contract @mozilla.org/native-events-observer;1 {cee89d1e-f891-438a-9405-981117d55c90}
+category profile-after-change @mozilla.org/native-events-observer;1 @mozilla.org/native-events-observer;1

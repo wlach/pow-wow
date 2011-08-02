@@ -8,6 +8,10 @@ DIRS := linux
 OBJECTS := native_events.o linux/linux_events.o linux/linux_utils.o
 TARGET := libnative_events.so
 
+native-events.xpi: 
+	cd ffx-extension; zip -r9 native-events.xpi *; cd ..
+	mv ffx-extension/native-events.xpi .
+
 $(TARGET): $(OBJECTS)
 	$(CC) $(LFLAGS) $^ -o $@
 
@@ -17,7 +21,7 @@ $(TARGET): $(OBJECTS)
 %.o: %.cxx
 	$(CXX) $(CFLAGS) -I -c $< -o $@
 
-.PHONY: clean
+.PHONY: clean native-events.xpi
 
 clean:
 	echo Cleaning up temporary files
